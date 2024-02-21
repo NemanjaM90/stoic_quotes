@@ -4,7 +4,7 @@ class Category
 
     //Database connection and table name
     private $conn;
-    private $table_name = "Categories";
+    private $table_name = "categories";
 
     //Object properties
     public $id;
@@ -18,10 +18,12 @@ class Category
     //Use for drop-down list
     function read()
     {
-        $query = "SELECT id, name FROM" . $this->table_name . "ORDER BY name";
+        $query = "SELECT id, name FROM " . $this->table_name . " ORDER BY name";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
+
+        return $stmt;
     }
 
     //Used to read category name by ID
